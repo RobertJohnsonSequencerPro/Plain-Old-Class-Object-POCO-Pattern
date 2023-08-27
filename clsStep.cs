@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,9 +28,10 @@ namespace Plain_Old_Class_Object__POCO__Pattern
 
            long.TryParse(dr[StepFields.lngStepID.ToString()].ToString(), out long lngStepID);
 
-            string query = "SELECT * FROM Collector WHERE " + StepFields.lngStepID.ToString() + " = '" + lngStepID +"'";
+           
             System.Data.DataTable dt = new System.Data.DataTable();
-            //Write some code that executes the above query and stffs the result into  
+            clsSQLiteConn newSQLiteConn = new clsSQLiteConn();
+            newSQLiteConn.PopulateADataTable(ref dt, "Collector");
 
             foreach(DataRow drNewCollector in dt.Rows )
             {
@@ -37,6 +39,7 @@ namespace Plain_Old_Class_Object__POCO__Pattern
                 Collectors.Add(newCollector);
             }
         }
+
 
     }
 }
