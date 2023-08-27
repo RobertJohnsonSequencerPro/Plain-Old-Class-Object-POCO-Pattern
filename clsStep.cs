@@ -51,6 +51,19 @@ namespace Plain_Old_Class_Object__POCO__Pattern
             }
         }
 
+        /// <summary>
+        /// Get all collectors that belong to this step that are of the specified type.
+        /// </summary>
+        /// <param name="CollectorType">Collector types are enumerated in the clsCollector.CollectorTpes enum.</param>
+        /// <returns></returns>
+        public List<clsCollector> FilterCollectorsByType(string CollectorType)
+        {
+            var MatchingCollectors = from collector in Collectors
+                                     where collector.strCollectorType == CollectorType
+                                     select collector;
+            return MatchingCollectors.ToList();
+        }
+
 
     }
 }

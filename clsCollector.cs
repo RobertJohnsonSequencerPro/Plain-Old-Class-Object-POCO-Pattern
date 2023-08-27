@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Plain_Old_Class_Object__POCO__Pattern
 {
-    internal class clsCollector
+    public class clsCollector
     {
 
-        string strCollectorType = "";
-        string strDescription = "";
+        public string strCollectorType = "";
+        public string strDescription = "";
         //The collector ID is the primary key for the database. It is always a positive integer value. Assigned here intitally as -1 to indicate that it has not been correctly initialized with data from the database.
-        long lngCollectorID = -1;
+        public long lngCollectorID = -1;
 
         /// <summary>
         /// Listing of the fields in this class -- should match the fields in the Step table of the database.
